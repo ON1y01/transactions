@@ -23,6 +23,17 @@
 		</div>
 		<button id="balanceBtn">Показать баланс</button>
 
+		<div class="df-account">
+			<div class="df-account__block">
+				<h2>Signature :</h2>
+				<input id="message" type="text"></input>
+			</div>
+		</div>
+		<button id="signIn">Sign & Send</button>
+		<h2>message : <span id="msg"></span></h2>
+		<h2>signature : <span id="signature"></span></h2>
+
+
 		<label for="name" class="col-lg-2 control-label"><h2>Перевод</h2></label>
 		<h2>Откуда :</h2>
         <input id="From" type="text">
@@ -49,21 +60,13 @@
 			}
 			web3 = new Web3(new Web3.providers.HttpProvider("http://localhost:8545"));
 
-			// web3.eth.getNodeInfo(function(error, result){
-			// 	if(error){
-			// 		console.log( "error" ,error);
-			// 	}
-			// 	else{
-			// 		console.log( "result",result );
-			// 		$('#NodeInfo').val(result);
-			// 	}
-			// });
 			
 
 			web3.eth.getAccounts(function(error, accounts) {
 				if(error) {
 					console.log(error);
 				}
+				
 				$('#accountIn').val(accounts[0]);
 				web3.eth.getBalance(accounts[0]).then(function(result){
 					console.log( "Balance : " ,web3.utils.fromWei(result, 'ether'));
@@ -103,6 +106,20 @@
 				
 			});
 			
+			$('#signIn').click(function() {
+				console.log($('#message').val());
+				const Messages = $('#message').val();
+				const message = web3.utils.sha3($('#message').val())
+				console.log(message);
+				web3.eth.getAccounts(function(error, accounts) {
+					if(error) {
+						console.log(error);
+					}
+					
+					console.log(web3.eth.accounts.sign(Messages, message).signature);
+					$('#signature').text(web3.eth.accounts.sign(Messages, message).signature);
+				});
+			});
 		
 		});
 	
