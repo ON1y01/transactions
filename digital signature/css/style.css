@@ -37,3 +37,6 @@ button {
 .df-account__block:nth-child(1){
     margin: 0;
 }
+.df-none{
+    display: none;
+}

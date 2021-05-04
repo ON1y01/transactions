@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/style.css">
+	<script src="js/web3.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <!-- <input id="NodeInfo" type="text"> -->
+        <!-- <label for="name" class="col-lg-2 control-label" id="Account"></label> -->
+		<div class="df-account">
+			<div class="df-account__block">
+				<h2>Счет :</h2>
+				<input id="accountIn" type="text">
+			</div>
+			<div class="df-account__block">
+				<h2>Баланс :</h2>
+				<input id="balanceIn" type="text">
+			</div>
+		</div>
+		<button id="balanceBtn">Показать баланс</button>
+
+		<div class="df-account">
+			<div class="df-account__block">
+				<h2>Signature :</h2>
+				<input id="message" type="text"></input>
+			</div>
+		</div>
+		<button id="signIn">Sign & Send</button>
+		<h2>message : <span id="msg"></span></h2>
+		<h2>signature : <span id="signature"></span></h2>
+		<div class="df-none" id="noneIn">
+			<h2>Проверка подписи:</h2>
+			<button id="verifyIn">Verify Sign</button>
+			<span id="verifySign"></span>
+		</div>
+
+
+		<label for="name" class="col-lg-2 control-label"><h2>Перевод</h2></label>
+		<h2>Откуда :</h2>
+        <input id="From" type="text">
+		<h2>Куда :</h2>
+        <input id="To" type="text">
+        <h2>Сумма :</h2>
+        <input id="Amount" type="text">
+        <button id="perevesti">Перевести</button>
+		<h2>Номер транзакции : <span id="tranHash"></span></h2>
+    </div>
+</body>
+<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+<script src="function.js"></script>
+</html>
