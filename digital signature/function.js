@@ -80,7 +80,7 @@ $( document ).ready(function() {
         Signature = web3.eth.accounts.sign(Message, '193cf571ff0233debbbb1438d346f8b0cbd76eab2077715a57c6ccd2f15ecedf');
         // console.log(Account);
         // console.log(web3.eth.accounts.sign(Message, '193cf571ff0233debbbb1438d346f8b0cbd76eab2077715a57c6ccd2f15ecedf'));	
-            $('#msg').text(messageHash);
+            $('#msg').text(Message);
             $('#signature').text(Signature.signature);
             $('#noneIn').css("display","block");
             
@@ -89,6 +89,7 @@ $( document ).ready(function() {
 
     $('#verifyIn').click(function(){
         console.log(web3.eth.accounts.recover(Signature));
+        $('#verifyText').text("Сообщения отправлено от адреса : " + web3.eth.accounts.recover(Signature));
     });
 });
 
